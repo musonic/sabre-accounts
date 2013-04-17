@@ -26,8 +26,11 @@ The plugin works by sending an HTTP POST request to the server with a custom hea
 The request MUST include the following:
 
 1) A "Content-Type" header of "application/json"
+
 2) A "request-username" header that matches the username of your superuser.
+
 3) A request body in JSON format that simply contains the username of user you want to add along with a password in digesta1
-format. 
-eg. $body = json_encode(array('username'=>$username, 'digesta1'=>$password));
+format. eg.
+
+    $body = json_encode(array('username'=>$username, 'digesta1'=>$password));
 
