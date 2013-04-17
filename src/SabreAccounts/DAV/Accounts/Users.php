@@ -1,29 +1,28 @@
 <?php
-namespace DepbookSabre\DAV\Accounts;
-use Sabre\DAV\Exception as Exception;
+namespace SabreAccounts\DAV\Accounts;
+use Sabre\DAV\Exception;
+use Sabre\DAVACL\IACL;
+use Sabre\DAVACL\PrincipalBackend\BackendInterface;
+use SabreAccounts\DAV\Accounts\Backend\PDO;
+use Sabre\DAV\URLUtil;
 
 /**
  * The users class represents a node on which to make requests to add new users.
  *
- * @package Sabre
- * @subpackage DAV
- * @copyright Copyright (C) 2012 Nic Le Breuilly. All rights reserved.
- * @author Nic Le Breuilly
- * @license http://code.google.com/p/sabredav/wiki/License Modified BSD License
  */
-class Users implements \Sabre\DAVACL\IACL {
+class Users implements IACL {
     
     /**
      * Principal backend
      *
-     * @var Sabre\DAVACL\IPrincipalBackend
+     * @var Sabre\DAVACL\PrincipalBackend\BackendInterface
      */
     protected $principalBackend;
 
     /**
      * Accounts backend
      *
-     * @var Sabre\DAV\Accounts\Backend\PDO
+     * @var SabreAccounts\DAV\Accounts\Backend\PDO
      */
     protected $accountsBackend;
 
@@ -37,11 +36,11 @@ class Users implements \Sabre\DAVACL\IACL {
     /**
      * Constructor
      *
-     * @param Sabre\DAVACL\IPrincipalBackend $principalBackend
-     * @param Sabre\DAV\Accounts\Backend\PDO $accountsBackend
+     * @param Sabre\DAVACL\PrincipalBackend\BackendInterface $principalBackend
+     * @param SabreAccounts\DAV\Accounts\Backend\PDO $accountsBackend
      * @param mixed $userUri
      */
-    public function __construct(\Sabre\DAVACL\IPrincipalBackend $principalBackend, Backend\PDO $accountsBackend, $userUri) {
+    public function __construct(BackendInterface $principalBackend, PDO $accountsBackend, $userUri) {
 
         $this->principalBackend = $principalBackend;
         $this->accountsBackend = $accountsBackend;
@@ -56,7 +55,7 @@ class Users implements \Sabre\DAVACL\IACL {
      */
     public function getName() {
 
-        list(,$name) = \Sabre\DAV\URLUtil::splitPath($this->principalInfo['uri']);
+        list(,$name) = URLUtil::splitPath($this->principalInfo['uri']);
         return $name;
 
     }

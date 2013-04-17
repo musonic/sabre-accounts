@@ -1,18 +1,15 @@
 <?php
-namespace DepbookSabre\DAV\Accounts\Backend;
+namespace SabreAccounts\DAV\Accounts\Backend;
+
+use SabreAccounts\DAV\Accounts\Backend\BackendInterface;
 
 /**
  * User backend class
  *
  * This class handles creation of new users and principals
  *
- * @package Sabre
- * @subpackage DAV
- * @copyright Copyright (C) 2007-2012 Nic Le Breuilly. All rights reserved.
- * @author NIc Le Breuilly
- * @license http://code.google.com/p/sabredav/wiki/License Modified BSD License
  */
-class PDO implements \DepbookSabre\DAV\Accounts\IBackend {
+class PDO implements BackendInterface {
 
     /**
      * Reference to PDO connection

@@ -1,5 +1,9 @@
 <?php
-namespace DepbookSabre\DAV\Accounts;
+namespace SabreAccounts\DAV\Accounts;
+
+use Sabre\DAV\ServerPlugin;
+use Sabre\DAV\Server;
+use SabreAccounts\DAV\Accounts\Backend\PDO;
 
 /**
  * Add User Plugin
@@ -10,21 +14,15 @@ namespace DepbookSabre\DAV\Accounts;
  *
  * The principal uri can be modified to allow for more complex situations if required.
  *
- *
- * @package Sabre
- * @subpackage DAV
- * @copyright Copyright (C) 2007-2012 Nic Le Breuilly. All rights reserved.
- * @author Nic Le Breuilly
- * @license http://code.google.com/p/sabredav/wiki/License Modified BSD License
  */
-class Plugin extends \Sabre\DAV\ServerPlugin {
+class Plugin extends ServerPlugin {
     
     public $server; 
     
     /**
      * Accounts backend
      *
-     * @var Sabre\DAV\Accounts\IBackend
+     * @var Sabre\DAV\Accounts\Backend\BackendInterface
      */
     private $accountsBackend;
     
@@ -36,9 +34,9 @@ class Plugin extends \Sabre\DAV\ServerPlugin {
     /**
      * __construct
      *
-     * @param Sabre_DAV_User_IBackend $userBackend
+     * @param Sabre\DAV\Accounts\Backend\BackendInterface $userBackend
      */
-    public function __construct(\DepbookSabre\DAV\Accounts\Backend\PDO $accountsBackend) {
+    public function __construct(PDO $accountsBackend) {
 
         $this->accountsBackend = $accountsBackend;
 
@@ -54,7 +52,7 @@ class Plugin extends \Sabre\DAV\ServerPlugin {
         $this->superuser = $username;
     }
     
-    function initialize(\Sabre\DAV\Server $server) {
+    function initialize(Server $server) {
         
         $this->server = $server;
         $server->subscribeEvent('beforeMethod',array($this,'httpPostInterceptor'));
@@ -92,7 +90,7 @@ class Plugin extends \Sabre\DAV\ServerPlugin {
             return true;
         }
         
-        // send the date to the backend
+        // send the data to the backend
         return $this->accountsBackend->createUser($params) ? false : true;
         
     }

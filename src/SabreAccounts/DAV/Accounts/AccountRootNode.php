@@ -1,26 +1,17 @@
 <?php
-namespace DepbookSabre\DAV\Accounts;
+namespace SabreAccounts\DAV\Accounts;
 use Sabre\DAVACL\AbstractPrincipalCollection;
 use Sabre\DAVACL\PrincipalBackend\BackendInterface;
 use Sabre\DAV\Accounts\Backend\PDO;
 
 /**
- * Calendars collection
+ * 
  *
- * This object is responsible for generating a list of calendar-homes for each
- * user.
- *
- * @package Sabre
- * @subpackage CalDAV
- * @copyright Copyright (C) 2007-2012 Rooftop Solutions. All rights reserved.
- * @author Evert Pot (http://www.rooftopsolutions.nl/)
- * @modified Nic Le Breuilly
- * @license http://code.google.com/p/sabredav/wiki/License Modified BSD License
  */
-class AccountRootNode extends \Sabre\DAVACL\AbstractPrincipalCollection {
+class AccountRootNode extends AbstractPrincipalCollection {
 
     /**
-     * CalDAV backend
+     * Accounts backend
      *
      * @var Sabre_CalDAV_Backend_Abstract
      */
@@ -41,7 +32,7 @@ class AccountRootNode extends \Sabre\DAVACL\AbstractPrincipalCollection {
      * @param Sabre_CalDAV_Backend_Abstract $caldavBackend
      * @param string $principalPrefix
      */
-    public function __construct(\Sabre\DAVACL\PrincipalBackend\BackendInterface $principalBackend, \Sabre\DAV\Accounts\Backend\PDO $accountsBackend, $principalPrefix = 'accounts') {
+    public function __construct(BackendInterface $principalBackend, PDO $accountsBackend, $principalPrefix = 'accounts') {
 
         parent::__construct($principalBackend, $principalPrefix);
         $this->accountsBackend = $accountsBackend;

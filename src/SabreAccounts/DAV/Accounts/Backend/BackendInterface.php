@@ -1,16 +1,11 @@
 <?php
-namespace DepbookSabre\DAV\Accounts;
+namespace SabreAccounts\DAV\Accounts\Backend;
 
 /**
  * This is the base class for any user object.
  *
- * @package Sabre
- * @subpackage DAV
- * @copyright Copyright (C) 2007-2012 Nic Le Breuilly. All rights reserved.
- * @author Nic Le Breuilly 
- * @license http://code.google.com/p/sabredav/wiki/License Modified BSD License
  */
-interface IBackend {
+interface BackendInterace {
     
      /**
      * Creates a new user
