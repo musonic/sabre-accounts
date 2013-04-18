@@ -4,6 +4,9 @@ SabreAccounts
 Accounts plugin for SabreDAV (https://github.com/evert/SabreDAV) a WebDAV framework for PHP. 
 This plugin allows for the creation of users remotely via HTTP request.
 
+NB: Currently this only creates users not principals. If you're not sure what the difference is then take a look here:
+http://tools.ietf.org/html/rfc3744#section-2
+
 REQUIREMENTS
 ============
 
