@@ -13,7 +13,11 @@ use SabreAccounts\DAV\Accounts\Backend\PDO;
  * be hardcoded initially into the database.
  *
  * The principal uri can be modified to allow for more complex situations if required.
+ * 
  *
+ * @copyright Copyright (C) 2013 Nic Le Breuilly. All rights reserved.
+ * @author Nic Le Breuilly
+ * @license https://github.com/musonic/SabreAccounts/blob/master/src/SabreAccounts/LICENSE Modified BSD License
  */
 class Plugin extends ServerPlugin {
     

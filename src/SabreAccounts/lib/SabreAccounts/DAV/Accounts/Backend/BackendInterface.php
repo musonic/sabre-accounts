@@ -2,8 +2,9 @@
 namespace SabreAccounts\DAV\Accounts\Backend;
 
 /**
- * This is the base class for any user object.
- *
+ * @copyright Copyright (C) 2013 Nic Le Breuilly. All rights reserved.
+ * @author Nic Le Breuilly
+ * @license https://github.com/musonic/SabreAccounts/blob/master/src/SabreAccounts/LICENSE Modified BSD License
  */
 interface BackendInterace {
     

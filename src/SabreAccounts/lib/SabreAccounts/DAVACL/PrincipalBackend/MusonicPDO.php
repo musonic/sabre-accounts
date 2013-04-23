@@ -3,6 +3,11 @@ namespace SabreAccounts\DAVACL\PrincipalBackend;
 use Sabre\DAVACL\PrincipalBackend\PDO;
 use Sabre\DAV\Exception;
 
+/**
+ * @copyright Copyright (C) 2013 Nic Le Breuilly. All rights reserved.
+ * @author Nic Le Breuilly
+ * @license https://github.com/musonic/SabreAccounts/blob/master/src/SabreAccounts/LICENSE Modified BSD License
+ */
 class MusonicPDO extends PDO
 {
 	/**

@@ -8,6 +8,10 @@ use SabreAccounts\DAV\Accounts\Backend\BackendInterface;
  *
  * This class handles creation of new users and principals
  *
+ *
+ * @copyright Copyright (C) 2013 Nic Le Breuilly. All rights reserved.
+ * @author Nic Le Breuilly
+ * @license https://github.com/musonic/SabreAccounts/blob/master/src/SabreAccounts/LICENSE Modified BSD License
  */
 class PDO implements BackendInterface {
 

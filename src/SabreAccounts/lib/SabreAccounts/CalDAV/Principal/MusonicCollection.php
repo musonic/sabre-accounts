@@ -4,6 +4,11 @@ namespace SabreAccounts\CalDAV\Principal;
 use Sabre\CalDAV\Principal\Collection;
 use Sabre\DAV\IExtendedCollection;
 
+/**
+ * @copyright Copyright (C) 2013 Nic Le Breuilly. All rights reserved.
+ * @author Nic Le Breuilly
+ * @license https://github.com/musonic/SabreAccounts/blob/master/src/SabreAccounts/LICENSE Modified BSD License
+ */
 class MusonicCollection extends Collection implements IExtendedCollection {
 
     /**

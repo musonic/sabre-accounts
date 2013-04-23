@@ -9,6 +9,10 @@ use Sabre\DAV\URLUtil;
 /**
  * The users class represents a node on which to make requests to add new users.
  *
+ *
+ * @copyright Copyright (C) 2013 Nic Le Breuilly. All rights reserved.
+ * @author Nic Le Breuilly
+ * @license https://github.com/musonic/SabreAccounts/blob/master/src/SabreAccounts/LICENSE Modified BSD License
  */
 class Users implements IACL {
     
