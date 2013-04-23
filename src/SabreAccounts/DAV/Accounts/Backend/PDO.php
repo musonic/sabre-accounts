@@ -40,11 +40,18 @@ class PDO implements BackendInterface {
 
     } 
     
-    public function createUser($params) {
+	/**
+	 * Creates a new user
+	 * 
+	 * @param string $username
+	 * @param string $hash
+	 */
+    public function createUser($username, $hash) {
         
         $stmt = $this->pdo->prepare('INSERT INTO '.$this->tableName.' (username, digesta1) VALUES (?,?)');
-        $stmt->execute(array($params->username, $params->digesta1));
-        return true;
+		
+		return $stmt->execute(array($username, $hash));
+        
     }   
 
     

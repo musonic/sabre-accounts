@@ -79,19 +79,20 @@ class Plugin extends ServerPlugin {
                 return true;
         }
         
-        $body = $this->server->httpRequest->getBody(); 
+		// passing true to the getBody method returns a string
+        $body = $this->server->httpRequest->getBody(true); 
         
         // the request body should be simple json object with the username and digestA1 password
-        $params = json_decode(stream_get_contents($body));
+        $params = json_decode($body);
          
         // check we have what we need
-        if(!$params->username OR !$params->digesta1)
+        if(!$params->username || !$params->digesta1)
         { 
             return true;
         }
         
         // send the data to the backend
-        return $this->accountsBackend->createUser($params) ? false : true;
+        return $this->accountsBackend->createUser($params->username, $params->digesta1) ? false : true;
         
     }
     

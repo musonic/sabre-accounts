@@ -11,11 +11,12 @@ interface BackendInterace {
      * Creates a new user
      *
      * If creation is successful, true must be returned.
-     * If creation fails, an exception must be thrown.
      *
+	 * @param string $username
+	 * @param string $hash
      * @return bool
      */
-    function createUser($params);
+    function createUser($username, $hash);
 
     /**
      * Creates a new principal

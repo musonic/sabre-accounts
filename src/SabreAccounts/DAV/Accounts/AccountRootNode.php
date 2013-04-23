@@ -2,7 +2,7 @@
 namespace SabreAccounts\DAV\Accounts;
 use Sabre\DAVACL\AbstractPrincipalCollection;
 use Sabre\DAVACL\PrincipalBackend\BackendInterface;
-use Sabre\DAV\Accounts\Backend\PDO;
+use SabreAccounts\DAV\Accounts\Backend\PDO;
 
 /**
  * 
@@ -13,7 +13,7 @@ class AccountRootNode extends AbstractPrincipalCollection {
     /**
      * Accounts backend
      *
-     * @var Sabre_CalDAV_Backend_Abstract
+     * @var SabreAccounts\DAV\Accounts\Backend\BackendInterface
      */
     protected $accountsBackend;
 
@@ -28,8 +28,8 @@ class AccountRootNode extends AbstractPrincipalCollection {
      * to override this.
      *
      *
-     * @param Sabre_DAVACL_IPrincipalBackend $principalBackend
-     * @param Sabre_CalDAV_Backend_Abstract $caldavBackend
+     * @param Sabre\DAVACL\PrincipalBackend\BackendInterface $principalBackend
+     * @param SabreAccounts\DAV\Accounts\Backend\BackendInterface $accountsBackend
      * @param string $principalPrefix
      */
     public function __construct(BackendInterface $principalBackend, PDO $accountsBackend, $principalPrefix = 'accounts') {
