@@ -18,15 +18,5 @@ interface BackendInterace {
      * @return bool
      */
     function createUser($username, $hash);
-
-    /**
-     * Creates a new principal
-     *
-     * If creation is successful, true must be returned.
-     * If creation fails, an exception must be thrown.
-     *
-     * @return bool
-     */
-    // function createPrincipal();
     
 }

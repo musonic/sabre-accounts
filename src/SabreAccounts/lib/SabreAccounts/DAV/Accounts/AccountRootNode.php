@@ -21,12 +21,7 @@ class AccountRootNode extends AbstractPrincipalCollection {
     /**
      * Constructor
      *
-     * This constructor needs both an authentication and a caldav backend.
-     *
-     * By default this class will show a list of calendar collections for
-     * principals in the 'principals' collection. If your main principals are
-     * actually located in a different path, use the $principalPrefix argument
-     * to override this.
+     * This constructor needs both a principal and an accounts backend.
      *
      *
      * @param Sabre\DAVACL\PrincipalBackend\BackendInterface $principalBackend
@@ -40,26 +35,9 @@ class AccountRootNode extends AbstractPrincipalCollection {
 
     }
 
-    // /**
-     // * Returns the nodename
-     // *
-     // * We're overriding this, because the default will be the 'principalPrefix',
-     // * and we want it to be Sabre_CalDAV_Plugin::CALENDAR_ROOT
-     // *
-     // * @return string
-     // */
-    // public function getName() {
-// 
-        // return Sabre_CalDAV_Plugin::CALENDAR_ROOT;
-// 
-    // }
-
     /**
-     * This method returns a node for a principal.
+     * This method returns a node for a user.
      *
-     * The passed array contains principal information, and is guaranteed to
-     * at least contain a uri item. Other properties may or may not be
-     * supplied by the authentication backend.
      *
      * @param array $principal
      * @return Sabre_DAV_INode
