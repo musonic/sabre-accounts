@@ -66,14 +66,13 @@ class Plugin extends ServerPlugin {
     function httpPostInterceptor($method) {
         
         if ($method !== 'POST') return true;
-        
-        // importantly we need to secure this method so that only a "superuser" can add
-        // other users to the database. 
-        // The request will have a custom header added with the username of the user making the request
-        if($this->server->httpRequest->getHeader('request-username') !== $this->superuser)
-        {
-            return true;
-        } 
+		
+		// check that the request comes from the currently logged in user
+		$authPlugin = $this->server->getPlugin('auth');
+		$userName = $authPlugin->getCurrentUser();
+		if($userName == NULL || $userName !== $this->superuser) {
+			return true;
+		}
         
         // check the MIME type of the request. We only want to intercept requests that 
         // have the mime-type "application/json"
