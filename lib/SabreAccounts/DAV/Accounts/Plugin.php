@@ -67,12 +67,12 @@ class Plugin extends ServerPlugin {
         
         if ($method !== 'POST') return true;
 		
-		// check that the request comes from the currently logged in user
-		$authPlugin = $this->server->getPlugin('auth');
-		$userName = $authPlugin->getCurrentUser();
-		if($userName == NULL || $userName !== $this->superuser) {
-			return true;
-		}
+	// check that the request comes from the currently logged in user
+	$authPlugin = $this->server->getPlugin('auth');
+	$userName = $authPlugin->getCurrentUser();
+	if($userName == NULL || $userName !== $this->superuser) {
+		return true;
+	}
         
         // check the MIME type of the request. We only want to intercept requests that 
         // have the mime-type "application/json"
