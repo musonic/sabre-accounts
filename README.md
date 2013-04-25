@@ -32,13 +32,10 @@ After adding that, you can just run `composer update` to complete the installati
 2) Update your server.php file (or whatever you have named it)
 
 ```php
-<?php
-
-    $accountsBackend = new \SabreAccounts\DAV\Accounts\Backend\PDO($pdo);
-    $account = new \SabreAccounts\DAV\Accounts\Plugin($accountsBackend);
-    $account->set_superuser('your_super_user');
-    $server->addPlugin($account);
-    
+$accountsBackend = new \SabreAccounts\DAV\Accounts\Backend\PDO($pdo);
+$account = new \SabreAccounts\DAV\Accounts\Plugin($accountsBackend);
+$account->set_superuser('your_super_user');
+$server->addPlugin($account);   
 ```    
 
 Usage
@@ -55,10 +52,7 @@ The request MUST include the following:
 format. eg.
 
 ```php
-<?php
-
 $body = json_encode(array('username'=>$username, 'digesta1'=>$password));
-    
 ```    
     
 ### Creating principals
@@ -66,14 +60,10 @@ $body = json_encode(array('username'=>$username, 'digesta1'=>$password));
 1. Update your server.php file to use the correct principals backend 
 
 ```php
-<?php
-
 $principalsBackend = new \SabreAccounts\DAVACL\PrincipalBackend\MusonicPDO(
-
-      $pdo, 
-      $principalsTable, 
-      $groupMembersTableName
-      
+    $pdo, 
+    $principalsTable,
+    $groupMembersTableName      
 );
 ```
 
